@@ -1,12 +1,11 @@
 import os
 import json
 from flask import Flask, render_template, request, jsonify, Response, stream_with_context
-import anthropic
+from groq import Groq
 
 app = Flask(__name__)
 
-ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY")
-client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
+client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
 
 TENANTS = [
     {
@@ -129,15 +128,16 @@ def chat():
         return jsonify({"error": "No messages provided"}), 400
 
     def generate():
-        with client.messages.stream(
-            model="claude-sonnet-4-6",
-            max_tokens=8192,
-            system=SYSTEM_PROMPT,
-            messages=messages
-        ) as stream:
-            for text in stream.text_stream:
-                yield f"data: {json.dumps({'content': text})}\n\n"
-            yield f"data: {json.dumps({'done': True})}\n\n"
+        stream = client.chat.completions.create(
+            model="llama-3.3-70b-versatile",
+            messages=[{"role": "system", "content": SYSTEM_PROMPT}] + messages,
+            stream=True
+        )
+        for chunk in stream:
+            delta = chunk.choices[0].delta
+            if delta.content:
+                yield f"data: {json.dumps({'content': delta.content})}\n\n"
+        yield f"data: {json.dumps({'done': True})}\n\n"
 
     return Response(
         stream_with_context(generate()),
