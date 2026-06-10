@@ -1,1 +1,42 @@
-[]
+[
+  {
+    "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567801",
+    "position": 1,
+    "filepath": "src/pages/slides/Slide1Title.tsx",
+    "title": "Property Manager AI",
+    "description": "Title slide with project metadata",
+    "speakerNotes": ""
+  },
+  {
+    "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567802",
+    "position": 2,
+    "filepath": "src/pages/slides/Slide2WhatItDoes.tsx",
+    "title": "What It Does",
+    "description": "Overview of AI chat capabilities",
+    "speakerNotes": ""
+  },
+  {
+    "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567803",
+    "position": 3,
+    "filepath": "src/pages/slides/Slide3TenantData.tsx",
+    "title": "Six Tenants, Real Data",
+    "description": "Breakdown of tenant data: rent, maintenance, emails, stats",
+    "speakerNotes": ""
+  },
+  {
+    "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567804",
+    "position": 4,
+    "filepath": "src/pages/slides/Slide4TechStack.tsx",
+    "title": "Tech Stack",
+    "description": "Flask, Groq, SSE streaming, and Replit deployment",
+    "speakerNotes": ""
+  },
+  {
+    "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567805",
+    "position": 5,
+    "filepath": "src/pages/slides/Slide5Deployed.tsx",
+    "title": "Deployed",
+    "description": "Closing slide — app is live on Replit",
+    "speakerNotes": ""
+  }
+]
