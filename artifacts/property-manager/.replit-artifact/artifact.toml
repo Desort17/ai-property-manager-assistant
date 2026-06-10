@@ -1,0 +1,26 @@
+kind = "web"
+previewPath = "/"
+title = "Property Manager AI"
+version = "1.0.0"
+id = "artifacts/property-manager"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 5000
+
+[services.development]
+run = "cd artifacts/property-manager && python app.py"
+
+[services.production]
+
+[services.production.run]
+args = ["gunicorn", "--chdir", "artifacts/property-manager", "-w", "4", "--bind", "0.0.0.0:5000", "app:app"]
+
+[services.production.run.env]
+PORT = "5000"
