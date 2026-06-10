@@ -99,7 +99,7 @@ async function sendMessage() {
     let firstChunk = true;
 
     try {
-        const response = await fetch('/api/chat', {
+        const response = await fetch('/chat', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ messages: conversationHistory })
@@ -167,7 +167,7 @@ function clearChat() {
 
 async function loadStats() {
     try {
-        const res = await fetch('/api/tenants');
+        const res = await fetch('/tenants');
         const tenants = await res.json();
 
         const total = tenants.length;

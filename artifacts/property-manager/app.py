@@ -119,7 +119,7 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/api/chat", methods=["POST"])
+@app.route("/chat", methods=["POST"])
 def chat():
     data = request.get_json()
     messages = data.get("messages", [])
@@ -149,7 +149,7 @@ def chat():
     )
 
 
-@app.route("/api/tenants", methods=["GET"])
+@app.route("/tenants", methods=["GET"])
 def get_tenants():
     return jsonify(TENANTS)
 

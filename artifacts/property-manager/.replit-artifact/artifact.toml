@@ -15,7 +15,7 @@ paths = [ "/" ]
 localPort = 5000
 
 [services.development]
-run = "cd artifacts/property-manager && python app.py"
+run = "python app.py"
 
 [services.production]
 

@@ -29,8 +29,7 @@ outputType = "webview"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "cd artifacts/property-manager && python app.py"
-waitForPort = 5000
+args = "echo 'App is served by the property-manager artifact workflow'"
 
 [agent]
 stack = "PNPM_WORKSPACE"
